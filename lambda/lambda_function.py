@@ -54,6 +54,19 @@ class HelloWorldIntentHandler(AbstractRequestHandler):
                 .response
         )
 
+class IdeassionInfoHandler(AbstractRequestHandler):
+    
+    def can_handle(self, .handler_input):
+        
+        return ask_utils.is_intent_name("ideassion")(handler_input)
+        
+    def handle(self, handler_input):
+        
+        speak_output = "Here you go for this Link https://ideassion.com/contactus/"
+        
+        return (
+            handler_input.response_builder.speak(speak_output).response
+            )
 
 class HelpIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
